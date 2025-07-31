@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Slideshow</title>
+  <style>
+     {
+      width: 500px;
+      height: 300px;
+      margin: 20px auto;
+      border: 2px solid #ccc;
+      text-align: center;
+      position: relative;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .buttons {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    button {
+      padding: 8px 16px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+<div id="slideshow">
+  <img id="slide" src="https://images.adsttc.com/media/images/62fb/da56/dfae/2a01/6f1d/1ac8/newsletter/compton-and-edrich-stands-lords-cricket-ground-wilkinsoneyre_13.jpg?1660672619" alt="Slideshow Image">
+</div>
+<div class="buttons">
+  <button onclick="prevSlide()">Previous</button>
+  <button onclick="nextSlide()">Next</button>
+</div>
+<script>
+  const images = [
+    "https://ichef.bbci.co.uk/images/ic/1024x576/p0l9vzfz.jpg",
+    "https://akm-img-a-in.tosshub.com/indiatoday/images/story/201701/647_010517091159.jpg",
+    "https://www.livemint.com/lm-img/img/2025/03/09/600x338/ANI-20250309342-0_1741545281876_1741545293898.jpg",
+    "https://i1.wp.com/cdn.zeebiz.com/sites/default/files/2023/12/15/272829-hardik-pandya-reuters.jpg?strip=all",
+    "https://www.aljazeera.com/wp-content/uploads/2024/12/AFP__20241122__36N39GM__v1__HighRes__CricketAusInd-1733131187.jpg?resize=1800%2C1800"
+  ];
+  let currentIndex = 0;
+  const slide = document.getElementById("slide");
+  function showSlide(index) {
+    slide.src = images[index];
+  }
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showSlide(currentIndex);
+  }
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showSlide(currentIndex);
+  }
+  setInterval(nextSlide, 5000);
+</script>
+</body>
+</html>
